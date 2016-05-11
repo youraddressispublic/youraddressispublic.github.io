@@ -1,91 +1,57 @@
 <html>
     <head>
         <title>Your address is public</title>
-        <style>
-            body {
-                font-family: Tahoma, Geneva, sans-serif;
-            }
-            h2, h3 {
-                font-family: "Trebuchet MS", Helvetica, sans-serif;
-            }
 
-            .hero {
-                font-size: 130%;
-                text-align: center;
-                background-color: #EEB684;
-                margin: 15px 0px;
-                padding: 10px 15px 30px 15px;
-            }
+        <link rel="stylesheet" href="//fonts.googleapis.com/css?family=Lato:300,400,400italic" type="text/css">
+        <link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap.min.css" type='text/css'>
+        <link rel="stylesheet" href="site.css">
+        <script src="https://code.jquery.com/jquery-2.2.3.min.js"
+                integrity="sha256-a23g1Nt4dtEYOj7bR+vTu7+T8VP13humZFBJNIYoEJo=" crossorigin="anonymous"></script>
 
-            .summary {
-                font-size: 110%;
-            }
-
-            .tool {
-                margin: 15px 15px;
-                padding: 10px;
-                background-color: #BECABA;
-                text-align: center;
-            }
-
-            form {
-                margin-top: 5px;
-            }
-
-            form input {
-                font-size: 130%;
-            }
-
-            form button {
-                background-color: #F49C8F;
-                font-size: 130%;
-                border: 1px solid #F49C8F;
-                border-radius: 4px;
-            }
-
-            .container {
-                max-width: 960px;
-                margin-left: auto;
-                margin-right: auto;
-            }
-        </style>
     </head>
     <body>
         <div class="container">
-            <div class="hero">
-                <h2>Your address is public</h2>
-                <div class="subtitle">
+            <h1>Your home address may be public</h1>
+            <div class="row">
+                <div class="col-md-12">
+                    <p class="summary">
                     If you have a .nz domain name for personal use, chances are good that your name, email address, home address and phone number are all public on the internet.
+                    </p>
+
+                    <p>
+                        When you register a .nz domain name, you are asked for your contact details, including your address and phone number. What may not have been made clear to you is that those details are not kept private between you and the company you're registering the domain with. Instead, they are published publicly on the internet for anyone to see as part of the domain registry.
+                    </p>
+                    <p>
+                        To check whether your details are public, you can enter your domain name below. If discover you have accidentally made personal information public there's advice on what to do about it below.
+                    </p>
+                    <h3>How can I check if my details are public?</h3>
+                    <p>
+                        Enter your domain name here, without the www. at the front (i.e. just stuff.co.nz or similar). This will take you to the Domain Name Commission's website which will show you what details are available for this domain.
+                    </p>
+                    <form action="" class="form-inline" id="domain-form">
+                        <div class="form-group">
+                            <label for="domain">Enter your domain name:</label>
+                            <input class="form-control" id="domain" type="text" name="domain" placeholder="stuff.co.nz">
+                        </div>
+                        <button type="submit" class="btn btn-default">Check this domain</button>
+                    </form>
+                    <h3>What can I do?</h3>
+                    <p>
+                        If you have discovered that information you'd rather keep private has been made available, your options are limited. <a href="http://natdudley.com/blog/owning-a-dotnz-domain-safely/">This site has a good rundown of how to own a .nz domain safely</a>.
+                    </p>
+                    <h3>Why is this the case?</h3>
+                    <p>
+                        If it caught you by surprise, you're not the only one. Many of the places that sell .nz domains do not make it very clear that this is occurring. The Domain Name Commission, who run .nz, <a href="https://dnc.org.nz/consultation-whois-review-process">are currently holding a consultation</a>. If you are concerned about the way your information is being treated, you should send them a quick note at <a href="mailto:policies@dnc.org.nz">policies@dnc.org.nz</a> noting that this policy has affected you, it will help them make better rules.
+                    </p>
                 </div>
             </div>
-            <div class="summary">
-                <p>
-                    When you register a .nz domain name, you're asked for your contact details. What may not have been made clear to you is that those details are not kept private between you and the company you're reigstering the domain with. Instead, they are published publicly on the internet for anyone to see as part of the domain registry.
-                </p>
-                <p>
-                    To check whether your details are public, you can use the tool below. If you discover you have accidentally made personal information public there's advice on what to do about it below.
-                </p>
-            </div>
-            <div class="tool">
-                Enter your domain name here, without the www. at the front (i.e. just stuff.co.nz or similar).:
-                <form action="">
-                    <input type="text" name="domain">
-                    <button>Check domain</button>
-                </form>
-            </div>
-            <div class="whattodo">
-                <h3>What can I do?</h3>
-                <p>
-                    If you have discovered that information you'd rather keep private has been made available, your options are limited.
-                    <a href="http://natdudley.com/blog/owning-a-dotnz-domain-safely/">This site has a good rundown of how to own a .nz domain safely</a>.
-                </p>
-                <h3>Why is this the case?</h3>
-                <p>
-                    If it caught you by surprise, you're not the only one. Many of the places that sell .nz domains do not make it very clear that this is occurring. The Domain Name Commission, who run .nz,
-                    <a href="https://dnc.org.nz/consultation-whois-review-process">are currently holding a consultation</a>. If you are concerned about the way your information is being treated, you should send them a quick note at
-                    <a href="mailto:policies@dnc.org.nz">policies@dnc.org.nz</a> noting that this policy has affected you, it will help them make better policy.
-                </p>
-            </div>
         </div>
+        <script>
+            $('#domain-form').submit(function (e) {
+                e.preventDefault();
+                var domain = $('#domain').val();
+                window.open('https://dnc.org.nz/whois/' + domain);
+            });
+        </script>
     </body>
 </html>
